@@ -16,6 +16,10 @@ const rootReducer = (state = initialState, action) => {
         loading: false,
         challengeList: action.challengeList.weeks[1].challenges,
       };
+    case "GET_DAILY_SHOP":
+      return { ...state, loading: true };
+    case "DAILY_SHOP_RECEIVED":
+      return { ...state, loading: false, dailyShop: action.dailyShop.featured };
     default:
       return state;
   }

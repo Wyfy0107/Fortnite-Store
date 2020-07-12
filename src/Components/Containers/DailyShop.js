@@ -1,91 +1,66 @@
 import React, { Component } from "react";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import styled from "styled-components";
+import { getDailyShop } from "../../Redux/ActionTypes";
+import { connect } from "react-redux";
+import dailyItemImage from "../../Images/daily-item.jpg";
+
+let dailyShopItems = null;
 
 const CardWrapper = styled.div`
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(100px,1fr)`;
+  display: block;
+  flex-flow: row wrap;
+`;
+
+const Img = styled.img`
+  width: 20vw;
+  margin: 1rem;
+  transition: 0.5s;
+  box-shadow: 0 5px #3f4441;
+  &:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    box-shadow: 0 0;
+  }
+`;
+
+const Div = styled.div`
+  text-align: center;
+  background-image: url(${dailyItemImage});
+  background-size: 100vw 100vh;
+  padding: 1rem;
+`;
 
 class DailyShop extends Component {
+  componentDidMount() {
+    this.props.getDailyShop();
+  }
   render() {
+    if (this.props.dailyShop) {
+      dailyShopItems = this.props.dailyShop
+        .splice(3)
+        .map((val) => <Img src={val.full_background} alt='daily item' />);
+    }
     return (
-      <CardWrapper>
-        <Card style={{ width: "18rem", margin: "1rem" }}>
-          <Card.Img variant='top' src='holder.js/100px180' />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Button variant='primary'>Go somewhere</Button>
-          </Card.Body>
-        </Card>
-
-        <Card style={{ width: "18rem", margin: "1rem" }}>
-          <Card.Img variant='top' src='holder.js/100px180' />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Button variant='primary'>Go somewhere</Button>
-          </Card.Body>
-        </Card>
-
-        <Card style={{ width: "18rem", margin: "1rem" }}>
-          <Card.Img variant='top' src='holder.js/100px180' />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Button variant='primary'>Go somewhere</Button>
-          </Card.Body>
-        </Card>
-
-        <Card style={{ width: "18rem", margin: "1rem" }}>
-          <Card.Img variant='top' src='holder.js/100px180' />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Button variant='primary'>Go somewhere</Button>
-          </Card.Body>
-        </Card>
-
-        <Card style={{ width: "18rem", margin: "1rem" }}>
-          <Card.Img variant='top' src='holder.js/100px180' />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Button variant='primary'>Go somewhere</Button>
-          </Card.Body>
-        </Card>
-
-        <Card style={{ width: "18rem", margin: "1rem" }}>
-          <Card.Img variant='top' src='holder.js/100px180' />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Button variant='primary'>Go somewhere</Button>
-          </Card.Body>
-        </Card>
-      </CardWrapper>
+      <Div>
+        <h1>Daily Shop</h1>
+        {this.props.dailyShop ? (
+          <CardWrapper>{dailyShopItems}</CardWrapper>
+        ) : null}
+      </Div>
     );
   }
 }
 
-export default DailyShop;
+const mapStateToProps = (state) => {
+  return {
+    dailyShop: state.dailyShop,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getDailyShop: () => dispatch(getDailyShop()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DailyShop);

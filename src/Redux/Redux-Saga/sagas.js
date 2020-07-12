@@ -1,13 +1,7 @@
 import { put, takeLatest, all } from "redux-saga/effects";
+import requestOptions from "./FetchConfig";
 
-let myHeaders = new Headers();
-myHeaders.append("Authorization", "61218dd7-53471561-47821838-69f229ed");
-
-let requestOptions = {
-  method: "GET",
-  headers: myHeaders,
-};
-
+//Fetch funtions
 function* fetchChallengeList() {
   try {
     const challengeList = yield fetch(
@@ -19,14 +13,31 @@ function* fetchChallengeList() {
       challengeList: challengeList,
     });
   } catch (error) {
-    yield put({ type: "REQUEST_FAILED", error });
+    yield put({ type: "FETCH_CHALLENGE_LIST_FAILED", error });
   }
 }
 
+function* fetchDailyShop() {
+  try {
+    const dailyShop = yield fetch(
+      "https://fortniteapi.io/shop?lang=en",
+      requestOptions
+    ).then((response) => response.json());
+    yield put({ type: "DAILY_SHOP_RECEIVED", dailyShop: dailyShop });
+  } catch (error) {
+    yield put({ type: "FETCH_DAILY_SHOP_FAILD", error });
+  }
+}
+
+//Watcher function
 function* fetchChallengeListWatcher() {
   yield takeLatest("GET_CHALLENGE_LIST", fetchChallengeList);
 }
 
+function* fetchDailyShopWatchet() {
+  yield takeLatest("GET_DAILY_SHOP", fetchDailyShop);
+}
+
 export default function* rootSaga() {
-  yield all([fetchChallengeListWatcher()]);
+  yield all([fetchChallengeListWatcher(), fetchDailyShop()]);
 }

@@ -3,3 +3,9 @@ export const getChallengeList = () => {
     type: "GET_CHALLENGE_LIST",
   };
 };
+
+export const getDailyShop = () => {
+  return {
+    type: "GET_DAILY_SHOP",
+  };
+};

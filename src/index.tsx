@@ -3,10 +3,27 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import { BrowserRouter as Router } from "react-router-dom";
+import { createStore, applyMiddleware } from "redux";
+import createMiddlewware from "redux-saga";
+import rootReducer from "./Redux/rootReducer";
+import rootSaga from "./Redux/Redux-Saga/Sagas";
+import { Provider } from "react-redux";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+const sagaMiddleware = createMiddlewware();
+
+const myStore = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Provider store={myStore}>
+        <App />
+      </Provider>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );

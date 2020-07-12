@@ -9,3 +9,9 @@ export const getDailyShop = () => {
     type: "GET_DAILY_SHOP",
   };
 };
+
+export const getTournaments = () => {
+  return {
+    type: "GET_TOURNAMENTS",
+  };
+};

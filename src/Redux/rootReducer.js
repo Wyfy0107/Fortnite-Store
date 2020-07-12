@@ -1,7 +1,7 @@
 const initialState = {
   challengeList: null,
   dailyShop: null,
-  upComingItems: null,
+  tournaments: null,
   itemsList: null,
   loading: false,
 };
@@ -20,6 +20,14 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, loading: true };
     case "DAILY_SHOP_RECEIVED":
       return { ...state, loading: false, dailyShop: action.dailyShop.featured };
+    case "GET_TOURNAMENTS":
+      return { ...state, loading: true };
+    case "TOURNAMENTS_RECEIVED":
+      return {
+        ...state,
+        loading: false,
+        tournaments: action.tournaments.events,
+      };
     default:
       return state;
   }

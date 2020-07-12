@@ -29,15 +29,35 @@ function* fetchDailyShop() {
   }
 }
 
+function* fetchTournaments() {
+  try {
+    const tournaments = yield fetch(
+      "https://fortniteapi.io/events/list?lang=en&region=NAE",
+      requestOptions
+    ).then((response) => response.json());
+    yield put({ type: "TOURNAMENTS_RECEIVED", tournaments: tournaments });
+  } catch (error) {
+    yield put({ type: "FETCH_TOURNAMENTS_FAILED", error });
+  }
+}
+
 //Watcher function
 function* fetchChallengeListWatcher() {
   yield takeLatest("GET_CHALLENGE_LIST", fetchChallengeList);
 }
 
-function* fetchDailyShopWatchet() {
+function* fetchDailyShopWatcher() {
   yield takeLatest("GET_DAILY_SHOP", fetchDailyShop);
 }
 
+function* fetchTournamentsWatcher() {
+  yield takeLatest("GET_TOURNAMENTS", fetchTournaments);
+}
+
 export default function* rootSaga() {
-  yield all([fetchChallengeListWatcher(), fetchDailyShop()]);
+  yield all([
+    fetchChallengeListWatcher(),
+    fetchDailyShopWatcher(),
+    fetchTournamentsWatcher(),
+  ]);
 }

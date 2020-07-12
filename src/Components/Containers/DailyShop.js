@@ -38,11 +38,13 @@ class DailyShop extends Component {
     if (this.props.dailyShop) {
       dailyShopItems = this.props.dailyShop
         .splice(3)
-        .map((val) => <Img src={val.full_background} alt='daily item' />);
+        .map((val) => (
+          <Img key={val.name} src={val.full_background} alt='daily item' />
+        ));
     }
     return (
       <Div>
-        <h1>Daily Shop</h1>
+        <h1 style={{ color: "white" }}>Daily Shop</h1>
         {this.props.dailyShop ? (
           <CardWrapper>{dailyShopItems}</CardWrapper>
         ) : null}

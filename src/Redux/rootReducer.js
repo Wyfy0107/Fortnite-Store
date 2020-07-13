@@ -3,6 +3,8 @@ const initialState = {
   dailyShop: null,
   tournaments: null,
   itemsList: null,
+  itemID: null,
+  itemDetail: null,
   loading: false,
 };
 
@@ -35,6 +37,18 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         itemsList: action.itemsList.items.backpack,
+      };
+    case "GET_ITEM_DETAIL":
+      return {
+        ...state,
+        loading: true,
+        itemID: action.itemID,
+      };
+    case "ITEM_DETAIL_RECEIVED":
+      return {
+        ...state,
+        loading: false,
+        itemDetail: action.itemDetail.item,
       };
     default:
       return state;

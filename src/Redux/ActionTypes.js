@@ -21,3 +21,10 @@ export const getItemsList = () => {
     type: "GET_ITEMS_LIST",
   };
 };
+
+export const getItemDetail = (itemID) => {
+  return {
+    type: "GET_ITEM_DETAIL",
+    itemID: itemID,
+  };
+};

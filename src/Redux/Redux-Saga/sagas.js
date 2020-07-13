@@ -1,7 +1,10 @@
-import { put, takeLatest, all } from "redux-saga/effects";
+import { put, takeLatest, all, select } from "redux-saga/effects";
 import requestOptions from "./FetchConfig";
 
-//Fetch funtions
+//Selector function for item ID
+const getItemID = (state) => state.itemID;
+
+//Fetch functions
 function* fetchChallengeList() {
   try {
     const challengeList = yield fetch(
@@ -53,6 +56,19 @@ function* fetchItemsList() {
   }
 }
 
+function* fetchItemDetail() {
+  try {
+    const itemID = yield select(getItemID);
+    const itemDetail = yield fetch(
+      `https://fortniteapi.io/items/get?lang=en&id=${itemID}`,
+      requestOptions
+    ).then((response) => response.json());
+    yield put({ type: "ITEM_DETAIL_RECEIVED", itemDetail: itemDetail });
+  } catch (error) {
+    yield put({ type: "FETCH_ITEM_DETAIL_FAILED" });
+  }
+}
+
 //Watcher function
 function* fetchChallengeListWatcher() {
   yield takeLatest("GET_CHALLENGE_LIST", fetchChallengeList);
@@ -70,11 +86,16 @@ function* fetchItemsListWatcher() {
   yield takeLatest("GET_ITEMS_LIST", fetchItemsList);
 }
 
+function* fetchItemDetailWatcher() {
+  yield takeLatest("GET_ITEM_DETAIL", fetchItemDetail);
+}
+
 export default function* rootSaga() {
   yield all([
     fetchChallengeListWatcher(),
     fetchDailyShopWatcher(),
     fetchTournamentsWatcher(),
     fetchItemsListWatcher(),
+    fetchItemDetailWatcher(),
   ]);
 }

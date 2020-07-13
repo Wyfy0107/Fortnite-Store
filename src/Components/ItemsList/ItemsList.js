@@ -46,7 +46,7 @@ class ItemsList extends Component {
             {this.props.itemsList ? <Div>{itemsList}</Div> : null}
           </Route>
 
-          <Route path={`${path}/:itemsID`}>
+          <Route path={`${path}/:itemID`}>
             <ItemsDetail />
           </Route>
         </Switch>

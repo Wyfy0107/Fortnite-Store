@@ -15,3 +15,9 @@ export const getTournaments = () => {
     type: "GET_TOURNAMENTS",
   };
 };
+
+export const getItemsList = () => {
+  return {
+    type: "GET_ITEMS_LIST",
+  };
+};

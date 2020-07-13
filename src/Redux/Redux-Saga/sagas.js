@@ -41,6 +41,18 @@ function* fetchTournaments() {
   }
 }
 
+function* fetchItemsList() {
+  try {
+    const itemsList = yield fetch(
+      "https://fortniteapi.io/items/list?lang=en",
+      requestOptions
+    ).then((response) => response.json());
+    yield put({ type: "ITEMS_LIST_RECEIVED", itemsList: itemsList });
+  } catch (error) {
+    yield put({ type: "FETCH_ITEMS_LIST_FAILED", error });
+  }
+}
+
 //Watcher function
 function* fetchChallengeListWatcher() {
   yield takeLatest("GET_CHALLENGE_LIST", fetchChallengeList);
@@ -54,10 +66,15 @@ function* fetchTournamentsWatcher() {
   yield takeLatest("GET_TOURNAMENTS", fetchTournaments);
 }
 
+function* fetchItemsListWatcher() {
+  yield takeLatest("GET_ITEMS_LIST", fetchItemsList);
+}
+
 export default function* rootSaga() {
   yield all([
     fetchChallengeListWatcher(),
     fetchDailyShopWatcher(),
     fetchTournamentsWatcher(),
+    fetchItemsListWatcher(),
   ]);
 }

@@ -28,6 +28,14 @@ const rootReducer = (state = initialState, action) => {
         loading: false,
         tournaments: action.tournaments.events,
       };
+    case "GET_ITEMS_LIST":
+      return { ...state, loading: true };
+    case "ITEMS_LIST_RECEIVED":
+      return {
+        ...state,
+        loading: false,
+        itemsList: action.itemsList.items.backpack,
+      };
     default:
       return state;
   }

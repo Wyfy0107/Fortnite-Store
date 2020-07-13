@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { getTournaments } from "../../Redux/ActionTypes";
 import { connect } from "react-redux";
-import styled from "styled-components";
 import TournamentCard from "./TournamentCard";
 
 let tournaments = null;
@@ -17,8 +16,12 @@ class Tournaments extends Component {
     if (this.props.tournaments) {
       tournaments = this.props.tournaments
         .slice(randomTournaments, randomTournaments + 3)
-        .map((val) => (
-          <TournamentCard title={val.name_line2} background={val.poster} />
+        .map((val, index) => (
+          <TournamentCard
+            key={index}
+            title={val.name_line2}
+            background={val.poster}
+          />
         ));
     }
     return (

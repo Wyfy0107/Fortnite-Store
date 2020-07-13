@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import { Link } from "react-router-dom";
 
 function NavigationBar() {
   return (
@@ -10,9 +11,17 @@ function NavigationBar() {
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='mr-auto'>
-            <Nav.Link href='#home'>Home</Nav.Link>
-            <Nav.Link href='#link'>Merch</Nav.Link>
-            <Nav.Link href='#link'>Tournaments</Nav.Link>
+            <Navbar.Text style={{ margin: "0 0.5rem" }}>
+              <Link to='/'>Home</Link>
+            </Navbar.Text>
+
+            <Navbar.Text style={{ margin: "0 0.5rem" }}>
+              <Link to='/ItemStore'>Merch</Link>
+            </Navbar.Text>
+
+            <Navbar.Text style={{ margin: "0 0.5rem" }}>
+              <Link to='/Tournaments'>Tournaments</Link>
+            </Navbar.Text>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -17,19 +17,20 @@ const TitleWrapper = styled.div`
   }
 `;
 
+const Wrapper = styled.div`
+  background-image: url(${(props) => props.background});
+  height: 90vh;
+  flex: 1 1;
+  margin: 5px;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+`;
+
 function TournamentCard({ title, background }) {
-  const Wrapper = styled.div`
-    background-image: url(${background});
-    height: 90vh;
-    flex: 1 1;
-    margin: 5px;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-  `;
   return (
-    <Wrapper>
+    <Wrapper background={background}>
       <TitleWrapper>
         <H2>{title}</H2>
       </TitleWrapper>

@@ -8,7 +8,6 @@ let dailyShopItems = null;
 
 const CardWrapper = styled.div`
   display: block;
-  flex-flow: row wrap;
 `;
 
 const Img = styled.img`

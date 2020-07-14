@@ -3,20 +3,22 @@ import { useParams } from "react-router-dom";
 import { getItemDetail } from "../../Redux/ActionTypes";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import Button from "react-bootstrap/Button";
 
 const DetailWrapper = styled.div`
   display: flex;
   flex-flow: row;
   margin: 3rem;
+  padding: 1rem
   justify-content: center;
   width: 60vw;
+  margin: auto;
 `;
 
 const InfoWrapper = styled.div`
   display: flex;
   flex-flow: column;
-  align-items: center;
-  text-align: center;
+  text-align: left;
   margin-left: 3rem;
   width: 100%;
 `;
@@ -45,8 +47,12 @@ function ItemDetail({ itemDetail, getItemDetail }) {
           <InfoWrapper>
             <h1 style={{ color: "" }}>{name}</h1>
             <h2>{rarity}</h2>
+            <br />
             <p>Type: {type}</p>
             <p>Price: {price}</p>
+            <Button variant='primary' style={{ width: "40%" }}>
+              Add to Cart
+            </Button>
           </InfoWrapper>
         </DetailWrapper>
       ) : null}

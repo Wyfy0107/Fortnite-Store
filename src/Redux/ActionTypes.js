@@ -28,3 +28,9 @@ export const getItemDetail = (itemID) => {
     itemID: itemID,
   };
 };
+
+export const merchStoreSearchDisplay = () => {
+  return {
+    type: "MERCH_STORE_ENTERED",
+  };
+};

@@ -2,8 +2,12 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
+import Form from "react-bootstrap/Form";
+import FormControl from "react-bootstrap/FormControl";
+import Button from "react-bootstrap/Button";
+import { connect } from "react-redux";
 
-function NavigationBar() {
+function NavigationBar({ searchDisplay }) {
   return (
     <>
       <Navbar bg='light' expand='lg'>
@@ -23,10 +27,29 @@ function NavigationBar() {
               <Link to='/Tournaments'>Tournaments</Link>
             </Navbar.Text>
           </Nav>
+          <Form
+            inline
+            style={{
+              display: !searchDisplay ? "none" : "block",
+            }}
+          >
+            <FormControl
+              type='text'
+              placeholder='Search Item'
+              className=' mr-sm-2'
+            />
+            <Button type='submit'>Submit</Button>
+          </Form>
         </Navbar.Collapse>
       </Navbar>
     </>
   );
 }
 
-export default NavigationBar;
+const mapStateToProps = (state) => {
+  return {
+    searchDisplay: state.searchDisplay,
+  };
+};
+
+export default connect(mapStateToProps, {})(NavigationBar);

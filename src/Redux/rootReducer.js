@@ -5,6 +5,7 @@ const initialState = {
   itemsList: null,
   itemID: null,
   itemDetail: null,
+  searchDisplay: false,
   loading: false,
 };
 
@@ -49,6 +50,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         itemDetail: action.itemDetail.item,
+      };
+    case "MERCH_STORE_ENTERED":
+      return {
+        ...state,
+        searchDisplay: !state.searchDisplay,
       };
     default:
       return state;

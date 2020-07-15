@@ -6,6 +6,7 @@ const initialState = {
   itemID: null,
   itemDetail: null,
   searchDisplay: false,
+  userInput: "hi",
   loading: false,
 };
 

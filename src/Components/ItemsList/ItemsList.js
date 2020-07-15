@@ -38,6 +38,7 @@ class ItemsList extends Component {
 
   componentWillUnmount() {
     this.props.merchStoreSearchDisplay();
+    window.addEventListener("scroll", this.listenToScroll);
   }
 
   listenToScroll = () => {

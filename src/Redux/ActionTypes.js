@@ -34,3 +34,16 @@ export const merchStoreSearchDisplay = () => {
     type: "MERCH_STORE_ENTERED",
   };
 };
+
+export const deliverAddedItem = (name) => {
+  return {
+    type: "ADDING_ITEM_NAME",
+    itemName: name,
+  };
+};
+
+export const switchCart = () => {
+  return {
+    type: "SWITCH_CART",
+  };
+};

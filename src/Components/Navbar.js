@@ -1,20 +1,22 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { useState } from "react";
-import { useRouteMatch } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import { switchCart } from "../Redux/ActionTypes";
+import ShoppingCart from "../Components/Containers/ShoppingCart";
 
 const SearchDisplayWrapper = styled.div`
   display: flex;
   flex-flow: column;
   position: absolute;
-  right: 2rem;
-  top: 0.5rem;
+  right: 5rem;
+  top: 0.6rem;
 `;
 
 const ResultWrapper = styled(SearchDisplayWrapper)`
@@ -23,12 +25,8 @@ const ResultWrapper = styled(SearchDisplayWrapper)`
   padding: 5px;
 `;
 
-function NavigationBar({ searchDisplay, itemsList }) {
+function NavigationBar({ searchDisplay, itemsList, switchCart }) {
   const [filteredResult, setResult] = useState(null);
-
-  let { path, url } = useRouteMatch();
-
-  let location = useLocation();
 
   const getUserInput = (event) => {
     let userInput = event.target.value;
@@ -96,6 +94,10 @@ function NavigationBar({ searchDisplay, itemsList }) {
                 : null}
             </div>
           </SearchDisplayWrapper>
+          <Button variant='primary' onClick={() => switchCart()}>
+            Cart
+          </Button>
+          <ShoppingCart />
         </Navbar.Collapse>
       </Navbar>
     </>
@@ -109,4 +111,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {})(NavigationBar);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    switchCart: () => dispatch(switchCart()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar);

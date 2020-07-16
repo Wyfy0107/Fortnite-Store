@@ -1,7 +1,30 @@
 import React from "react";
+import { connect } from "react-redux";
+import ListGroup from "react-bootstrap/ListGroup";
 
-function ShoppingCart() {
-  return <div></div>;
+function ShoppingCart({ addedItemName, cartOpen }) {
+  return (
+    <ListGroup
+      style={{
+        display: cartOpen ? "block" : "none",
+        position: "absolute",
+        right: "1rem",
+        top: "4rem",
+        zIndex: "100",
+      }}
+    >
+      {addedItemName.map((name) => (
+        <ListGroup.Item key={name}>{name}</ListGroup.Item>
+      ))}
+    </ListGroup>
+  );
 }
 
-export default ShoppingCart;
+const mapStateToProps = (state) => {
+  return {
+    addedItemName: state.addedItemName,
+    cartOpen: state.cartOpen,
+  };
+};
+
+export default connect(mapStateToProps)(ShoppingCart);

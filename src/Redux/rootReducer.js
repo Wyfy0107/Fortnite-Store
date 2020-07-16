@@ -6,7 +6,9 @@ const initialState = {
   itemID: null,
   itemDetail: null,
   searchDisplay: false,
-  userInput: "hi",
+  userInput: null,
+  addedItemName: [],
+  cartOpen: false,
   loading: false,
 };
 
@@ -56,6 +58,17 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         searchDisplay: !state.searchDisplay,
+      };
+
+    case "ADDING_ITEM_NAME":
+      return {
+        ...state,
+        addedItemName: [...state.addedItemName, action.itemName],
+      };
+    case "SWITCH_CART":
+      return {
+        ...state,
+        cartOpen: !state.cartOpen,
       };
     default:
       return state;

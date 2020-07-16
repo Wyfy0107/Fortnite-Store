@@ -12,7 +12,7 @@ import { Provider } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const sagaMiddleware = createMiddlewware();
-
+//@ts-ignore
 const myStore = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
 sagaMiddleware.run(rootSaga);

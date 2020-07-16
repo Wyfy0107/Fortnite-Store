@@ -4,6 +4,7 @@ import { getItemDetail } from "../../Redux/ActionTypes";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import Button from "react-bootstrap/Button";
+import { deliverAddedItem } from "../../Redux/ActionTypes";
 
 const DetailWrapper = styled.div`
   display: flex;
@@ -26,12 +27,12 @@ const InfoWrapper = styled.div`
 const Img = styled.img`
   width: 50%;
 `;
-function ItemDetail({ itemDetail, getItemDetail }) {
+function ItemDetail({ itemDetail, getItemDetail, deliverAddedItem }) {
   let { itemID } = useParams();
 
   useEffect(() => {
     getItemDetail(itemID);
-  }, []);
+  });
 
   if (itemDetail) {
     var { name, type, rarity, price } = itemDetail;
@@ -50,7 +51,11 @@ function ItemDetail({ itemDetail, getItemDetail }) {
             <br />
             <p>Type: {type}</p>
             <p>Price: {price}</p>
-            <Button variant='primary' style={{ width: "40%" }}>
+            <Button
+              variant='primary'
+              style={{ width: "40%" }}
+              onClick={() => deliverAddedItem(name)}
+            >
               Add to Cart
             </Button>
           </InfoWrapper>
@@ -69,6 +74,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getItemDetail: (itemID) => dispatch(getItemDetail(itemID)),
+    deliverAddedItem: (name) => dispatch(deliverAddedItem(name)),
   };
 };
 

@@ -11,6 +11,7 @@ function ShoppingCart({ addedItemName, cartOpen }) {
         right: "1rem",
         top: "4rem",
         zIndex: "100",
+        color: "black",
       }}
     >
       {addedItemName.map((name) => (

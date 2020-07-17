@@ -14,6 +14,7 @@ const DetailWrapper = styled.div`
   justify-content: center;
   width: 60vw;
   margin: auto;
+  color: black;
 `;
 
 const InfoWrapper = styled.div`

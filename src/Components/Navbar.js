@@ -56,7 +56,7 @@ function NavigationBar({ searchDisplay, itemsList, switchCart }) {
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='mr-auto'>
             <Navbar.Text style={{ margin: "0 0.5rem" }}>
-              <Link to='/'>Home</Link>
+              <Link to='/Fortnite-Store'>Home</Link>
             </Navbar.Text>
 
             <Navbar.Text style={{ margin: "0 0.5rem" }}>

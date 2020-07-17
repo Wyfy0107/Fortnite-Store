@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/Fortnite-Store/static/css/main.968d6415.chunk.css",
-    "main.js": "/Fortnite-Store/static/js/main.8ac4fc39.chunk.js",
-    "main.js.map": "/Fortnite-Store/static/js/main.8ac4fc39.chunk.js.map",
+    "main.js": "/Fortnite-Store/static/js/main.aa091cb8.chunk.js",
+    "main.js.map": "/Fortnite-Store/static/js/main.aa091cb8.chunk.js.map",
     "runtime-main.js": "/Fortnite-Store/static/js/runtime-main.8b7769f4.js",
     "runtime-main.js.map": "/Fortnite-Store/static/js/runtime-main.8b7769f4.js.map",
     "static/css/2.af3c1da9.chunk.css": "/Fortnite-Store/static/css/2.af3c1da9.chunk.css",
-    "static/js/2.ab6a5a5c.chunk.js": "/Fortnite-Store/static/js/2.ab6a5a5c.chunk.js",
-    "static/js/2.ab6a5a5c.chunk.js.map": "/Fortnite-Store/static/js/2.ab6a5a5c.chunk.js.map",
+    "static/js/2.f7902638.chunk.js": "/Fortnite-Store/static/js/2.f7902638.chunk.js",
+    "static/js/2.f7902638.chunk.js.map": "/Fortnite-Store/static/js/2.f7902638.chunk.js.map",
     "index.html": "/Fortnite-Store/index.html",
-    "precache-manifest.810fadaa92c27cf93704f8f71560a560.js": "/Fortnite-Store/precache-manifest.810fadaa92c27cf93704f8f71560a560.js",
+    "precache-manifest.df306927e1ce2d7c050b3d6a5db6c863.js": "/Fortnite-Store/precache-manifest.df306927e1ce2d7c050b3d6a5db6c863.js",
     "service-worker.js": "/Fortnite-Store/service-worker.js",
     "static/css/2.af3c1da9.chunk.css.map": "/Fortnite-Store/static/css/2.af3c1da9.chunk.css.map",
     "static/css/main.968d6415.chunk.css.map": "/Fortnite-Store/static/css/main.968d6415.chunk.css.map",
-    "static/js/2.ab6a5a5c.chunk.js.LICENSE.txt": "/Fortnite-Store/static/js/2.ab6a5a5c.chunk.js.LICENSE.txt",
+    "static/js/2.f7902638.chunk.js.LICENSE.txt": "/Fortnite-Store/static/js/2.f7902638.chunk.js.LICENSE.txt",
     "static/media/daily-item.jpg": "/Fortnite-Store/static/media/daily-item.70849d8e.jpg",
     "static/media/first.jpg": "/Fortnite-Store/static/media/first.1683a22e.jpg",
     "static/media/fourth.png": "/Fortnite-Store/static/media/fourth.86ab0c77.png",
@@ -23,8 +23,8 @@
   "entrypoints": [
     "static/js/runtime-main.8b7769f4.js",
     "static/css/2.af3c1da9.chunk.css",
-    "static/js/2.ab6a5a5c.chunk.js",
+    "static/js/2.f7902638.chunk.js",
     "static/css/main.968d6415.chunk.css",
-    "static/js/main.8ac4fc39.chunk.js"
+    "static/js/main.aa091cb8.chunk.js"
   ]
 }

@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Fortnite-Store/static/css/main.968d6415.chunk.css",
-    "main.js": "/Fortnite-Store/static/js/main.97071a94.chunk.js",
-    "main.js.map": "/Fortnite-Store/static/js/main.97071a94.chunk.js.map",
+    "main.js": "/Fortnite-Store/static/js/main.da01125b.chunk.js",
+    "main.js.map": "/Fortnite-Store/static/js/main.da01125b.chunk.js.map",
     "runtime-main.js": "/Fortnite-Store/static/js/runtime-main.8b7769f4.js",
     "runtime-main.js.map": "/Fortnite-Store/static/js/runtime-main.8b7769f4.js.map",
     "static/css/2.af3c1da9.chunk.css": "/Fortnite-Store/static/css/2.af3c1da9.chunk.css",
     "static/js/2.a4489caf.chunk.js": "/Fortnite-Store/static/js/2.a4489caf.chunk.js",
     "static/js/2.a4489caf.chunk.js.map": "/Fortnite-Store/static/js/2.a4489caf.chunk.js.map",
     "index.html": "/Fortnite-Store/index.html",
-    "precache-manifest.76098ca1e465ca15d4fbf0069adf6c08.js": "/Fortnite-Store/precache-manifest.76098ca1e465ca15d4fbf0069adf6c08.js",
+    "precache-manifest.a1ef7979a3161fa455ec5a6837083967.js": "/Fortnite-Store/precache-manifest.a1ef7979a3161fa455ec5a6837083967.js",
     "service-worker.js": "/Fortnite-Store/service-worker.js",
     "static/css/2.af3c1da9.chunk.css.map": "/Fortnite-Store/static/css/2.af3c1da9.chunk.css.map",
     "static/css/main.968d6415.chunk.css.map": "/Fortnite-Store/static/css/main.968d6415.chunk.css.map",
@@ -25,6 +25,6 @@
     "static/css/2.af3c1da9.chunk.css",
     "static/js/2.a4489caf.chunk.js",
     "static/css/main.968d6415.chunk.css",
-    "static/js/main.97071a94.chunk.js"
+    "static/js/main.da01125b.chunk.js"
   ]
 }

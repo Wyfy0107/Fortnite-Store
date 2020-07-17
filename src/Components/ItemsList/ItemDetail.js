@@ -10,7 +10,7 @@ const DetailWrapper = styled.div`
   display: flex;
   flex-flow: row;
   margin: 3rem;
-  padding: 1rem
+  padding: 1rem;
   justify-content: center;
   width: 60vw;
   margin: auto;

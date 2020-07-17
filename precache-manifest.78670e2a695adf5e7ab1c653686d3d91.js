@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d33db60c6edb2a948ea4441d648a86cb",
+    "revision": "d71b7ff524f5803b4ad6edf1451f8b22",
     "url": "/Fortnite-Store/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Fortnite-Store/static/css/2.af3c1da9.chunk.css"
   },
   {
-    "revision": "3645231b32eb0f5015e7",
+    "revision": "16e3b84e0872158f7643",
     "url": "/Fortnite-Store/static/css/main.968d6415.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Fortnite-Store/static/js/2.f7902638.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3645231b32eb0f5015e7",
-    "url": "/Fortnite-Store/static/js/main.28587f54.chunk.js"
+    "revision": "16e3b84e0872158f7643",
+    "url": "/Fortnite-Store/static/js/main.bfc46cc7.chunk.js"
   },
   {
     "revision": "dabefffda19b51b21c99",

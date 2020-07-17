@@ -16,7 +16,7 @@ const LoadingScreen = styled.div`
 
 function Loading({ loading }) {
   return (
-    <LoadingScreen loading={loading}>
+    <LoadingScreen loading={loading ? "true" : null}>
       <h1 style={{ position: "relative", top: "8rem" }}>Loading...</h1>
     </LoadingScreen>
   );

@@ -33,7 +33,7 @@ function ItemDetail({ itemDetail, getItemDetail, deliverAddedItem }) {
 
   useEffect(() => {
     getItemDetail(itemID);
-  });
+  }, []);
 
   if (itemDetail) {
     var { name, type, rarity, price } = itemDetail;

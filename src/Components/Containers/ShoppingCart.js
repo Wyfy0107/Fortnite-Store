@@ -1,10 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import ListGroup from "react-bootstrap/ListGroup";
+import CartItemWrapper from "../../HOC/CartItemWrapper";
 
 function ShoppingCart({ addedItemName, cartOpen }) {
+  let uniqueNameSet = new Set(addedItemName);
+  let uniqueNameArray = Array.from(uniqueNameSet);
+
   return (
-    <ListGroup
+    <div
       style={{
         display: cartOpen ? "block" : "none",
         position: "absolute",
@@ -12,12 +15,13 @@ function ShoppingCart({ addedItemName, cartOpen }) {
         top: "4rem",
         zIndex: "100",
         color: "black",
+        background: "white",
       }}
     >
-      {addedItemName.map((name) => (
-        <ListGroup.Item key={name}>{name}</ListGroup.Item>
+      {uniqueNameArray.map((name) => (
+        <CartItemWrapper name={name} key={name}></CartItemWrapper>
       ))}
-    </ListGroup>
+    </div>
   );
 }
 
